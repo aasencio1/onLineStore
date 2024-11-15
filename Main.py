@@ -2,6 +2,12 @@ import requests
 import os
 import json
 from Product import Product  # Asegúrate de que Product.py esté en el mismo directorio o en el path
+from Client import Client
+from Natural_Person import Natural_Person
+from Legal_Entity import Legal_Entity
+
+#, Legal_Entity
+
 
 class Main:
     def __init__(self, url):
@@ -151,10 +157,181 @@ class Main:
         try:
             product_id = int(input("Ingrese el ID del producto a eliminar: "))
             Product.delete_product(product_id)
-            input("Presione cualquier tecla para continuar...")
+            #input("Presione cualquier tecla para continuar...")
         except ValueError:
             print("Error: Asegúrese de ingresar un ID válido.")
-            input("Presione cualquier tecla para continuar...")
+           # input("Presione cualquier tecla para continuar...")
+    # Menu Cliente
+    def client_menu(self):
+        while True:
+            self.clear_terminal()
+            print("\n--- Menú de Cliente ---")
+            print("1. Persona Natural")
+            print("2. Persona Jurídica")
+            print("3. Retornar al Menú Principal")
+            choice = input("Seleccione una opción: ")
+
+            if choice == "1":
+                self.natural_person_menu()
+            elif choice == "2":
+                self.legal_entity_menu()
+            elif choice == "3":
+                print("Retornando al Menú Principal.")
+                break
+            else:
+                print("Opción no válida. Intente de nuevo.")
+
+    def natural_person_menu(self):
+        while True:
+            self.clear_terminal()
+            print("\n--- Cliente Persona Natural ---")
+            print("1. Agregar Cliente")
+            print("2. Buscar Cliente")
+            print("3. Actualizar Cliente")
+            print("4. Eliminar Cliente")
+            print("5. Retornar al Menú Anterior")
+            choice = input("Seleccione una opción: ")
+
+            if choice == "1":
+                print("Agregar Cliente Persona Natural seleccionado.")
+                input("Se va ingresar el Cliente ... Conti.......")
+                #Nat_person = Natural_Person(
+                #        "123 Main St",  # shipping_address
+                #        "555-1234",     # phone_number
+                #        "email@example.com",  # email
+                #        "V-12345678",    # identification
+                #        "John",          # name
+                #        "Doe"            # last_name
+                #    )
+                #Natural_Person.create(Nat_person)
+                identification = input("Identificación: ")
+                name = input("Nombre: ")
+                last_name = input("Apellido: ")
+                email = input("Correo electrónico: ")
+                phone_number = input("Número de teléfono: ")
+                shipping_address = input("Dirección de envío: ")
+               
+                person = Natural_Person(
+                        shipping_address,
+                        phone_number,
+                        email,
+                        name,
+                        last_name,
+                        identification
+                    )
+
+                    # Llamar al método create para guardar la instancia
+                Natural_Person.create(person)
+                print("Cliente Natural agregado exitosamente.")
+                input("Presione cualquier tecla para continuar...")
+            
+            elif choice == "2":
+                natural_file = "Natural_Person.json"
+                print("Buscar Cliente Persona Natural seleccionado.")
+                identification = input("Identificación: ")
+                #print(Natural_Person.read(identification , natural_file))
+                #input("Presione cualquier tecla para continuar...")
+
+                cliente_Leido= Natural_Person.get_client(identification , natural_file)
+                if cliente_Leido:
+                    self.clear_terminal()
+                    print("Cliente encontrado:")
+                    print(f"Identificacion: {cliente_Leido['identification']}")
+                    print(f"Nombre: {cliente_Leido['name']}")
+                    print(f"Apellido: {cliente_Leido['last_name']}")
+                    print(f"Correo-e: {cliente_Leido['email']}")
+                    print(f"Número de Teléfono: {cliente_Leido['phone_number']}")
+                    print(f"Direccion de envio: {cliente_Leido['shipping_address']}")
+                  
+                else:
+                     print("Cliente no encontrado.")
+                input("Presione cualquier tecla para continuar...")
+
+
+
+                # Lógica para buscar cliente persona natural
+            elif choice == "3":
+                natural_file = "Natural_Person.json"
+                print("Actualizar Cliente Persona Natural seleccionado.")
+                # Lógica para actualizar cliente persona natural
+                identifier = input("Ingrese la identificación del cliente a actualizar: ")
+                client = Natural_Person.get_client(identifier, natural_file)
+                if client:
+                    
+                        print("Ingrese los nuevos datos (deje en blanco para mantener el actual):")
+                        new_name = input(f"Nuevo Nombre ({client.get('name')}): ") or client.get("name")
+                        new_last_name = input(f"Nuevo Apellido ({client.get('last_name')}): ") or client.get("last_name")
+                        new_email = input(f"Nuevo Email ({client.get('email')}): ") or client.get("email")
+                        new_phone = input(f"Nuevo Teléfono ({client.get('phone_number')}): ") or client.get("phone_number")
+                        new_address = input(f"Nueva Dirección de Envío ({client.get('shipping_address')}): ") or client.get("shipping_address")
+                        
+                        updated_data = {
+                            "name": new_name,
+                            "last_name": new_last_name,
+                            "email": new_email,
+                            "phone_number": new_phone,
+                            "shipping_address": new_address
+                        }
+                        #Natural_Person.update(identifier, updated_data, natural_file)
+                        Client.update(identifier, updated_data, natural_file)
+                else:
+                        print(f"Cliente con identificación '{identifier}' no encontrado.")
+            elif choice == "4":
+                natural_file = "Natural_Person.json"
+                print("Eliminar Cliente Persona Natural seleccionado.")
+                # Lógica para eliminar cliente persona natural
+                identifier = input("Ingrese el número de Identificación del Cliente a Eliminar: ")
+               
+                client= Natural_Person.get_client(identifier , natural_file)
+                if client:
+                       
+                        confirm = input(f"¿Está seguro que desea eliminar al cliente con identificación '{identifier}'? (s/n): ").lower()
+                        if confirm == 's':
+                            Client.delete_client(identifier, natural_file)
+                            print("Cliente Eliminado.")
+                            input("Presione cualquier tecla para continuar...")
+                        else:
+                            print("Operación cancelada.")
+                else:
+                        print(f"Cliente con identificación '{identifier}' no encontrado.")     
+                        input("Presione cualquier tecla para continuar...")
+                
+            elif choice == "5":
+                print("Retornando al Menú de Cliente.")
+                break
+            else:
+                print("Opción no válida. Intente de nuevo.")
+
+    def legal_entity_menu(self):
+        while True:
+            self.clear_terminal()
+            print("\n--- Cliente Persona Jurídica ---")
+            print("1. Agregar Cliente")
+            print("2. Buscar Cliente")
+            print("3. Actualizar Cliente")
+            print("4. Eliminar Cliente")
+            print("5. Retornar al Menú Anterior")
+            choice = input("Seleccione una opción: ")
+
+            if choice == "1":
+                print("Agregar Cliente Persona Jurídica seleccionado.")
+                # Lógica para agregar cliente persona jurídica
+            elif choice == "2":
+                print("Buscar Cliente Persona Jurídica seleccionado.")
+                # Lógica para buscar cliente persona jurídica
+            elif choice == "3":
+                print("Actualizar Cliente Persona Jurídica seleccionado.")
+                # Lógica para actualizar cliente persona jurídica
+            elif choice == "4":
+                print("Eliminar Cliente Persona Jurídica seleccionado.")
+                # Lógica para eliminar cliente persona jurídica
+            elif choice == "5":
+                print("Retornando al Menú de Cliente.")
+                break
+            else:
+                print("Opción no válida. Intente de nuevo.")
+
+
 
 # Ejecución del programa
 if __name__ == "__main__":
