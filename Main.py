@@ -1,4 +1,4 @@
-import requests
+import requests 
 import os
 import json
 from Product import Product  # Asegúrate de que Product.py esté en el mismo directorio o en el path
@@ -60,19 +60,22 @@ class Main:
             print("2. Buscar Producto")
             print("3. Actualizar Producto")
             print("4. Eliminar Producto")
-            print("5. Retornar al Menú Principal")
+            print("5. Listar Productos")
+            print("6. Retornar al Menú Principal")
             choice = input("Seleccione una opción: ")
 
             if choice == "1":
                 self.add_product()
             elif choice == "2":
-                #self.read_product()
-                Product.list_all_products()
+                self.read_product()
+                
             elif choice == "3":
                 self.update_product()
             elif choice == "4":
                 self.delete_product()
             elif choice == "5":
+                Product.list_all_products()
+            elif choice == "6":
                 break
             else:
                 print("Opción no válida. Intente de nuevo.")
@@ -94,9 +97,12 @@ class Main:
 
     def read_product(self):
         try:
-           
+            #Product.list_all_products()
+            self.clear_terminal()
             product_id = int(input("Ingrese el ID del producto a buscar: "))
             producto_leido = Product.get_product(product_id)
+           
+           #print(f"Este es Producto a Buscar -> { producto_leido['name']}")
             if producto_leido:
                 print("Producto encontrado:")
                 print(f"ID: {producto_leido['product_id']}")
@@ -107,7 +113,9 @@ class Main:
                 print(f"Inventario: {producto_leido['inventory']}")
                 print(f"Vehículos compatibles: {', '.join(producto_leido['compatible_vehicles'])}")
             else:
-                    print("Producto no encontrado.")
+                print("Producto no encontrado.")
+            input("Presione cualquier tecla para continuar...")
+            
             #if producto_leido:
             #    print("\nDetalles del Producto:")
             #    for key, value in producto_leido.items():
@@ -126,16 +134,27 @@ class Main:
                 'inventory': int(input("Ingrese el nuevo inventario (deje en blanco para no cambiar): ") or 0),
                 'compatible_vehicles': input("Ingrese los nuevos vehículos compatibles (separados por comas, deje en blanco para no cambiar): ").split(",") if input else None
             }
-            Product.update_product(product_id, {k: v for k, v in updated_data.items() if v})
+           # Product.update_product(5, price=1, inventory=2)
+           # Product.update_product(product_id, updated_data)
+
+           # Filtrar los datos válidos para evitar cambios no deseados
+            filtered_data = {key: value for key, value in updated_data.items() if value}
+
+            # Invocar el método de actualización con los datos capturados
+            Product.update_product(product_id, **filtered_data)
+            input("Presione cualquier tecla para continuar...")
         except ValueError:
             print("Error: Asegúrese de ingresar valores válidos.")
+            input("Presione cualquier tecla para continuar...")
 
     def delete_product(self):
         try:
             product_id = int(input("Ingrese el ID del producto a eliminar: "))
             Product.delete_product(product_id)
+            input("Presione cualquier tecla para continuar...")
         except ValueError:
             print("Error: Asegúrese de ingresar un ID válido.")
+            input("Presione cualquier tecla para continuar...")
 
 # Ejecución del programa
 if __name__ == "__main__":

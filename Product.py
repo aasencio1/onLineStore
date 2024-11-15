@@ -77,11 +77,15 @@ class Product:
     # Método para leer un producto por ID
     @classmethod
     def get_product(cls, product_id):
+        #print(f"Este es Producto a Buscar -> {product_id}") 
         for product in cls.products:
             # Asegurarse de que 'product_id' esté en el producto antes de acceder a él
             if 'product_id' in product and product['product_id'] == product_id:
-                cls.esperar_continuar()
+                
+                #print("Producto encontrado:")
+                #cls.esperar_continuar()
                 return product
+            
         print("Id del producto no existe, favor ingrese un número diferente.")
         cls.esperar_continuar()
         return None
@@ -89,6 +93,8 @@ class Product:
 
     # Método para actualizar un producto por ID
     @classmethod
+    # Product.update_product(product_id, {k: v for k, v in updated_data.items() if v})
+    #   Product.update_product(5, price=1, inventory=2)
     def update_product(cls, product_id, **kwargs):
         # Buscar el producto en la lista
         for product in cls.products:
@@ -106,8 +112,6 @@ class Product:
                     print("Archivo 'data.json' actualizado después de la actualización.")
                 except IOError as e:
                     print(f"Ocurrió un error al actualizar el archivo: {e}")
-                
-                cls.esperar_continuar()
                 return
         
         # Si no se encuentra el producto, mostrar mensaje de error
@@ -144,5 +148,8 @@ class Product:
                 print(f"ID: {product['product_id']}, Name: {product['name']}, Description: {product['description']}, "
                       f"Price: {product['price']}, Category: {product['category']}, Inventory: {product['inventory']}, "
                       f"Compatible Vehicles: {', '.join(product['compatible_vehicles'])}")
+            cls.esperar_continuar() 
+
         else:
             print("No hay productos disponibles.")
+            cls.esperar_continuar() 
