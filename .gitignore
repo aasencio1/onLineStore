@@ -1,6 +1,7 @@
 data.json
 Natural_Person.json
 Legal_Entity.json
-Order.json
 Shipping.json
+Payment.json
+Order.json
 Corridas.py
