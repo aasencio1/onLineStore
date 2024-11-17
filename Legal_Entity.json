@@ -1,0 +1,18 @@
+[
+    {
+        "rif": "J-39398622-1",
+        "company_name": "Nueva Pepsi",
+        "contactPersonIdentification": "31965501",
+        "shipping_address": "",
+        "phone_number": "",
+        "email": "nuevapepsi@pepsi.com"
+    },
+    {
+        "rif": "J-39398622-2",
+        "company_name": "Empresas Polar",
+        "contactPersonIdentification": "14675315",
+        "shipping_address": "El Tambor, Los Teques",
+        "phone_number": "04245267852",
+        "email": "polar@nuevopolar.com"
+    }
+]

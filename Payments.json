@@ -1,0 +1,5 @@
+[
+    {"fecha": "2024-01-01", "pago_diario": 100, "pago_semanal": 500, "pago_anual": 10000},
+    {"fecha": "2024-01-02", "pago_diario": 200, "pago_semanal": 700, "pago_anual": 10500},
+    {"fecha": "2024-01-03", "pago_diario": 150, "pago_semanal": 800, "pago_anual": 11000}
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "orderId": 1,
+        "purchased_quantity": 2,
+        "date": "2024-11-16 17:11:44",
+        "status": "En Preparaci\u00f3n",
+        "productId": 101,
+        "paymentId": 201,
+        "shippingId": 301
+    }
+]

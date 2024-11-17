@@ -145,9 +145,13 @@ class Product:
     def list_all_products(cls):
         if cls.products:
             for product in cls.products:
+                print()
+                print(f"{product['product_id']}, nombre: {product['name']}, precio: {product['price']}, vehiculos compatibles: {product['compatible_vehicles']}")  
+                """"
                 print(f"ID: {product['product_id']}, Name: {product['name']}, Description: {product['description']}, "
-                      f"Price: {product['price']}, Category: {product['category']}, Inventory: {product['inventory']}, "
-                      f"Compatible Vehicles: {', '.join(product['compatible_vehicles'])}")
+                    f"Price: {product['price']}, Category: {product['category']}, Inventory: {product['inventory']}, "
+                    f"Compatible Vehicles: {', '.join(product['compatible_vehicles'])}")
+                """
             cls.esperar_continuar() 
 
         else:

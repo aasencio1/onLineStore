@@ -1,0 +1,114 @@
+[
+    {
+        "paymentId": 1,
+        "amount": 150.75,
+        "currency": "Dolar estadounidense",
+        "method": "Cash",
+        "status": "En espera",
+        "date": "2024-11-15T20:04:49.863611"
+    },
+    {
+        "paymentId": 2,
+        "amount": 200.0,
+        "currency": "Dolar estadounidense",
+        "method": "Zelle",
+        "status": "En espera",
+        "date": "2024-11-15T20:07:24.125959"
+    },
+    {
+        "paymentId": 3,
+        "amount": 200.0,
+        "currency": "Dolar estadounidense",
+        "method": "Zelle",
+        "status": "En espera",
+        "date": "2024-11-16T09:07:07.181567"
+    },
+    {
+        "paymentId": 4,
+        "amount": 200.0,
+        "currency": "Bolivar",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2024-11-16T09:07:26.236858"
+    },
+    {
+        "paymentId": 5,
+        "amount": 200.0,
+        "currency": "Dolar estadounidense",
+        "method": "Zelle",
+        "status": "En espera",
+        "date": "2024-11-16T09:08:48.991970"
+    },
+    {
+        "paymentId": 6,
+        "amount": 200.0,
+        "currency": "Dolar estadounidense",
+        "method": "Zelle",
+        "status": "En espera",
+        "date": "2024-11-16T09:10:03.265431"
+    },
+    {
+        "paymentId": 7,
+        "amount": 100.0,
+        "currency": "Dolar estadounidense",
+        "method": "PayPal",
+        "status": "Procesando",
+        "date": "2024-11-16T09:10:20.696165"
+    },
+    {
+        "paymentId": 8,
+        "amount": 200.0,
+        "currency": "Dolar estadounidense",
+        "method": "Zelle",
+        "status": "En espera",
+        "date": "2024-11-16T09:14:19.315075"
+    },
+    {
+        "paymentId": 9,
+        "amount": 150.0,
+        "currency": "Euro",
+        "method": "Transfer",
+        "status": "Procesando",
+        "date": "2024-11-16T09:14:42.459518"
+    },
+    {
+        "paymentId": 10,
+        "amount": 300.0,
+        "currency": "Bolivar",
+        "method": "Pago Movil",
+        "status": "Procesando",
+        "date": "2024-11-16T09:16:43.398641"
+    },
+    {
+        "paymentId": 11,
+        "amount": 230.0,
+        "currency": "Dolar estadounidense",
+        "method": "Cash",
+        "status": "Procesando",
+        "date": "2024-11-16T09:27:31.249491"
+    },
+    {
+        "paymentId": 12,
+        "amount": 100.0,
+        "currency": "Euro",
+        "method": "Cash",
+        "status": "Procesando",
+        "date": "2024-11-16T09:31:03.923509"
+    },
+    {
+        "paymentId": 13,
+        "amount": 120.0,
+        "currency": "Bolivar",
+        "method": "Pago Movil",
+        "status": "Procesando",
+        "date": "2024-11-16T09:34:54.679960"
+    },
+    {
+        "paymentId": 14,
+        "amount": 100.0,
+        "currency": "Dolar estadounidense",
+        "method": "Transfer",
+        "status": "Procesando",
+        "date": "2024-11-16T18:51:23.725974"
+    }
+]

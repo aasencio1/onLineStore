@@ -48,7 +48,6 @@ class Natural_Person(Client):
 
     def get_client(identifier: str, file_path: str):
         try:
-           
             with open(file_path, 'r') as file:
                 clients = json.load(file)
             for client in clients:

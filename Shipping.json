@@ -1,0 +1,177 @@
+[
+    {
+        "shippingId": 1,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "En_transito",
+        "service_price": 100.5
+    },
+    {
+        "shippingId": 2,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "En_transito",
+        "service_price": 100.5
+    },
+    {
+        "shippingId": 3,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "En_transito",
+        "service_price": 400
+    },
+    {
+        "shippingId": 4,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "En_transito",
+        "service_price": 300.5
+    },
+    {
+        "shippingId": 5,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "En_transito",
+        "service_price": 500.5
+    },
+    {
+        "shippingId": 6,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "En_transito",
+        "service_price": 500.5
+    },
+    {
+        "shippingId": 7,
+        "shipping_service": "Ipostel",
+        "shipping_method": "Oficina_de_retiro",
+        "shipping_status": "En_transito",
+        "service_price": 0.0
+    },
+    {
+        "shippingId": 8,
+        "shipping_service": "Tealca",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 200.0
+    },
+    {
+        "shippingId": 9,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 10,
+        "shipping_service": "Tealca",
+        "shipping_method": "Apartado_postal",
+        "shipping_status": "Procesado",
+        "service_price": 150.0
+    },
+    {
+        "shippingId": 11,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 12,
+        "shipping_service": "Ipostel",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 13,
+        "shipping_service": "Ipostel",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 14,
+        "shipping_service": "Ipostel",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 15,
+        "shipping_service": "Ipostel",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 16,
+        "shipping_service": "Ipostel",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 17,
+        "shipping_service": "Ipostel",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 18,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 1000.0
+    },
+    {
+        "shippingId": 19,
+        "shipping_service": "Tealca",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 100.0
+    },
+    {
+        "shippingId": 20,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 180.0
+    },
+    {
+        "shippingId": 21,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 180.0
+    },
+    {
+        "shippingId": 22,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 180.0
+    },
+    {
+        "shippingId": 23,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 180.0
+    },
+    {
+        "shippingId": 24,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 180.0
+    },
+    {
+        "shippingId": 25,
+        "shipping_service": "MRW",
+        "shipping_method": "Puerta_a_Puerta",
+        "shipping_status": "Procesado",
+        "service_price": 180.0
+    }
+]

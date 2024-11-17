@@ -5,7 +5,8 @@ from Product import Product  # Asegúrate de que Product.py esté en el mismo di
 from Client import Client
 from Natural_Person import Natural_Person
 from Legal_Entity import Legal_Entity
-
+from Shipping import Shipping, Shipping_Service, Shipping_Method, Shipping_Status
+from Payment import Payment, Payment_Method, Payment_Status, Currency
 #, Legal_Entity
 
 
@@ -14,7 +15,7 @@ class Main:
         self.url = url
         self.data = None
         self.running = True
-       # self.product_instance = Product() 
+    # self.product_instance = Product() 
 
     def clear_terminal(self):
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -31,7 +32,7 @@ class Main:
 
                 # Guardar datos en archivo JSON
                 product.DataStorage()
-             
+            
             else:
                 print(f"Error: Unable to load data. Status code: {response.status_code}")
         except requests.RequestException as e:
@@ -43,9 +44,13 @@ class Main:
         while self.running:
             self.clear_terminal()
             print("\n--- Menú Principal ---")
-            print("1. Producto")
-            print("2. Cliente")
-            print("3. Salir")
+            print("1. Gestión de Productos")
+            print("2. Gestión de Clientes")
+            print("3. Gestión de Ventas")
+            print("4. Gestión de Pagos")
+            print("5. Gestión de Envios")
+            print("6. Gestión de Indicadores")
+            print("7. Salir")
             choice = input("Seleccione una opción: ")
 
             if choice == "1":
@@ -53,6 +58,14 @@ class Main:
             elif choice == "2":
                 self.client_menu()
             elif choice == "3":
+                self.ventas()
+            elif choice == "4":
+                self.pagos()
+            elif choice == "5":
+                self.envios()
+            elif choice == "6":
+                self.indicadores()    
+            elif choice == "7":
                 print("Saliendo del sistema...")
                 self.running = False
             else:
@@ -107,8 +120,8 @@ class Main:
             self.clear_terminal()
             product_id = int(input("Ingrese el ID del producto a buscar: "))
             producto_leido = Product.get_product(product_id)
-           
-           #print(f"Este es Producto a Buscar -> { producto_leido['name']}")
+        
+            #print(f"Este es Producto a Buscar -> { producto_leido['name']}")
             if producto_leido:
                 print("Producto encontrado:")
                 print(f"ID: {producto_leido['product_id']}")
@@ -160,7 +173,7 @@ class Main:
             #input("Presione cualquier tecla para continuar...")
         except ValueError:
             print("Error: Asegúrese de ingresar un ID válido.")
-           # input("Presione cualquier tecla para continuar...")
+    # input("Presione cualquier tecla para continuar...")
     # Menu Cliente
     def client_menu(self):
         while True:
@@ -194,7 +207,6 @@ class Main:
 
             if choice == "1":
                 print("Agregar Cliente Persona Natural seleccionado.")
-                input("Se va ingresar el Cliente ... Conti.......")
                 #Nat_person = Natural_Person(
                 #        "123 Main St",  # shipping_address
                 #        "555-1234",     # phone_number
@@ -210,7 +222,7 @@ class Main:
                 email = input("Correo electrónico: ")
                 phone_number = input("Número de teléfono: ")
                 shipping_address = input("Dirección de envío: ")
-               
+                
                 person = Natural_Person(
                         shipping_address,
                         phone_number,
@@ -315,22 +327,422 @@ class Main:
 
             if choice == "1":
                 print("Agregar Cliente Persona Jurídica seleccionado.")
-                # Lógica para agregar cliente persona jurídica
+                self.agregar_cliente_juridico()
             elif choice == "2":
                 print("Buscar Cliente Persona Jurídica seleccionado.")
-                # Lógica para buscar cliente persona jurídica
+                self.buscar_persona_juridica()
             elif choice == "3":
                 print("Actualizar Cliente Persona Jurídica seleccionado.")
-                # Lógica para actualizar cliente persona jurídica
+                self.modificar_persona_juridica()
             elif choice == "4":
                 print("Eliminar Cliente Persona Jurídica seleccionado.")
-                # Lógica para eliminar cliente persona jurídica
+                self.eliminar_persona_juridica()
             elif choice == "5":
                 print("Retornando al Menú de Cliente.")
                 break
             else:
                 print("Opción no válida. Intente de nuevo.")
 
+    def agregar_cliente_juridico(self):
+        natural_file = "Natural_Person.json"
+        rif = input("RIF: ")
+        if Legal_Entity.read(rif):
+            print("El rif esta previamente registrado, por favor indicar un rif diferente.")
+            input("Presione cualquier tecla para continuar...")
+        else:
+            company_name = input("Nombre de la compañía: ")
+            phone_number = input("Número de teléfono de la compañía: ")
+            company_email = input("Correo electrónico de la compañía: ")
+            shipping_address = input("Dirección de envio de la compañía: ")
+            while True:
+                contact_identification = input("Cédula de la persona de contacto: ")
+                client = Natural_Person.get_client(contact_identification, natural_file)
+                if client:
+                    print()
+                    print(f"Nombre: {client['name']}")
+                    print(f"Apellido: {client['last_name']}")
+                    print(f"Correo-e: {client['email']}")
+                    print(f"Número de Teléfono: {client['phone_number']}")
+                    print(f"Direccion de envio: {client['shipping_address']}")
+                    desicion = input("Desea asociar a esta persona como contacto S/N? ").capitalize()
+                    if desicion == "S":
+                        Legal_Entity.create(rif, company_name, contact_identification, shipping_address, phone_number, company_email)
+                        input("Presione cualquier tecla para continuar...")
+                        break
+                    else:
+                        continuar = input("Desea continuar en el proceso de registro S/N?: ").capitalize()
+                        if continuar == 'N':
+                            break
+                        elif continuar == "S":
+                            contact_identification = ""
+                else:
+                    print("Cliente no encontrado.")
+                    contact_identification = ""
+                    input("Presione cualquier tecla para continuar...")
+
+    def buscar_persona_juridica(self):
+        natural_file = "Natural_Person.json"
+        rif = input("RIF: ")
+        compania_leida = Legal_Entity.read(rif)
+        if compania_leida:
+            print()
+            print(f"Nombre de la compañía: {compania_leida['company_name']}")
+            print(f"Numero de telefono de la compañía: {compania_leida['phone_number']}")
+            print(f"Dirección de envio de la compañía: {compania_leida['shipping_address']}")
+            print(f"Correo electronico de la compañía: {compania_leida['email']}")
+            print(f"Numero de cédula de la persona de contacto: {compania_leida['contactPersonIdentification']}")
+            client = Natural_Person.get_client(compania_leida['contactPersonIdentification'], natural_file)
+            if client:
+                    print(f"Nombre: {client['name']}")
+                    print(f"Apellido: {client['last_name']}")
+                    print(f"Correo-e: {client['email']}")
+                    print(f"Número de Teléfono: {client['phone_number']}")
+                    print(f"Direccion de envio: {client['shipping_address']}")
+            else:
+                    print("Cliente no encontrado, revise en el modulo de cliente que el número de cédula este registrado.")
+            input("Presione cualquier tecla para continuar...")
+        else:
+            print("Cliente juridico no encontrado.")
+            input("Presione cualquier tecla para continuar...")
+
+    def modificar_persona_juridica(self):
+        natural_file = "Natural_Person.json"
+        rif = input("RIF: ")
+        compania_leida = Legal_Entity.read(rif)
+        if compania_leida:
+            print("Ingrese los nuevos datos (deje en blanco para mantener el actual):")
+            new_company_name = input(f"Nuevo nombre de la compañía ({compania_leida['company_name']}): ") or compania_leida['company_name']
+            new_phone_number = input(f"Nuevo número de telefono de la compañía: ({compania_leida['phone_number']}): ") or compania_leida['phone_number']
+            new_shipping_address = input(f"Nueva dirección de envio de la compañía: ({compania_leida['shipping_address']}): ") or compania_leida['shipping_address']
+            new_email = input(f"Nuevo correo electronico de la compañía: ({compania_leida['email']}): ") or compania_leida['email']
+            while True:
+                new_contact_person_identification = input(f"Actualización de contacto de la compañía: ({compania_leida['contactPersonIdentification']}): ") or compania_leida['contactPersonIdentification']
+                # new_contact_person_identification = input("Cédula de la persona de contacto: ")
+                client = Natural_Person.get_client(new_contact_person_identification, natural_file)
+                if client:
+                    print(f"Nombre: {client['name']}")
+                    print(f"Apellido: {client['last_name']}")
+                    print(f"Correo-e: {client['email']}")
+                    print(f"Número de Teléfono: {client['phone_number']}")
+                    print(f"Direccion de envio: {client['shipping_address']}")
+                    desicion = input("Desea asociar a esta persona como contacto S/N? ").capitalize()
+                    if desicion == "S":
+                        updated_data = {
+                            "company_name": new_company_name,
+                            "phone_number": new_phone_number,
+                            "shipping_address": new_shipping_address,
+                            "email": new_email,
+                            "contactPersonIdentification": new_contact_person_identification}
+                        Legal_Entity.update(rif, updated_data)
+                        # Legal_Entity.update(rif, {"company_name": new_company_name, "phone_number": new_phone_number, "shipping_address": new_shipping_address, "email": new_email, 'contactPersonIdentification': new_contact_person_identification})
+                        input("Presione cualquier tecla para continuar...")
+                        break
+                    else:
+                        continuar = input("Desea continuar en el proceso de actualización de los datos de la persona juridica? (S/N): ").capitalize()
+                        if continuar == 'N':
+                            break
+                        elif continuar == "S":
+                            contact_identification = ""
+                else:
+                    print("Cliente no encontrado.")
+                    contact_identification = ""
+                    input("Presione cualquier tecla para continuar...")
+        else:
+            print("Cliente juridico no encontrado.")
+            input("Presione cualquier tecla para continuar...")
+
+    def eliminar_persona_juridica(self):
+        natural_file = "Natural_Person.json"
+        rif = input("RIF: ")
+        compania_leida = Legal_Entity.read(rif)
+        if compania_leida:
+            decision = input(f"Esta seguro que desea eliminar el cliente {compania_leida['company_name']} (Y/N)?: ").capitalize()
+            if decision == 'Y':
+                Legal_Entity.delete(rif)
+        else:
+            print("Cliente juridico no encontrado.")
+            input("Presione cualquier tecla para continuar...")
+
+    def ventas(self):
+        while True:
+            self.clear_terminal()
+            print("\n--- Modulo de Ventas ---")
+            print("1. Registrar Venta")
+            print("2. Buscar Ventas")
+            print("3. Obtener Cantidad de Productos ")
+            print("4. Retornar al Menú Anterior")
+            choice = input("Seleccione una opción: ")
+
+            if choice == "1":
+                self.registrar_ventas()
+            elif choice == "2":
+                print("Buscar Ventas.")
+                # Lógica para buscar cliente persona jurídica
+            elif choice == "3":
+                print("Obtener Cantidad de Productos.")
+                # Lógica para actualizar cliente persona jurídica
+            elif choice == "4":
+                print("Retornando al Menú anterior.")
+                break
+            else:
+                print("Opción no válida. Intente de nuevo.")
+
+    def registrar_ventas(self):
+        self.clear_terminal()
+        print("---Modulo de ventas--- \nSeleccione el tipo de cliente: \n1. Cliente natural \n2. Cliente Juridico")
+        seleccion = input("---> ")
+
+        if seleccion == '1':
+            identificacion = self.menu_buscar_cliente_natural()
+            print(f"Valor de identificacion: {identificacion}")
+            if identificacion:
+                producto_sel = self.menu_buscar_producto()
+                cantidad = int(input("Indique la cantidad del producto elegido a comprar: "))
+                pago_por_envio =  self.registro_venta_envio()
+                envio_id = Shipping.get_next_shipping_id() - 1
+                print(f"El pago por producto del id {producto_sel['product_id']} con precio {producto_sel['price']}") 
+                print(f"El pago por envio es {pago_por_envio}")
+                subtotal_producto = producto_sel["price"] * cantidad
+                monto_a_pagar = self.registrar_pago_venta(subtotal_producto, pago_por_envio)
+                print(monto_a_pagar)
+                # pago_id = Payment.get_next_payment_id() - 1
+                # print(f"El número de referencia de pago es: {pago_id}")
+                input("Presione cualquier tecla para continuar...")
+                
+            else:
+                print("No entre")
+                input("Presione cualquier tecla para continuar...")
+            
+
+        elif seleccion == '2':
+            pass
+        elif seleccion == '3':
+            pass
+        
+    def pagos(self):
+        while True:
+            self.clear_terminal()
+            print("\n--- Modulo de Pagos ---")
+            print("1. Registrar pagos")
+            print("2. Buscar pagos")
+            print("3. Retornar al Menú Anterior")
+            menu = input("---> ")
+
+            if menu == '1':
+                self.registrar_pagos()
+            elif menu == '2':
+                self.buscar_pagos()
+            elif menu == '3':
+                break
+
+    def registrar_pagos(self):
+        amount = float(input("Monto del pago: "))
+        precio_producto = 1
+        precio_envio = 2
+        self.registrar_pago_venta(precio_producto, precio_envio)
+        print("Pago agregado exitosamente.")
+        input("Presione cualquier tecla para continuar...")
+
+    def buscar_pagos(self):
+        payment_file = "Payment.json"
+        print("Buscar numero de pago.")
+        identification_payment = int(input("Número de pago: "))
+                #print(Natural_Person.read(identification , natural_file))
+                #input("Presione cualquier tecla para continuar...")
+        payment_leido = Payment.get_payment(identification_payment)
+        #if shipping_leido:
+            #print(f"Envío encontrado: {shipping_leido}")
+        #else:
+            # print("Envío no encontrado.")
+        # cliente_Leido= Natural_Person.get_client(identification , shipping_file)
+        if payment_leido:
+            self.clear_terminal()
+            print("Envio encontrado:")
+            print(f"Identificacion del pago: {payment_leido["paymentId"]}")
+            print(f"Monto del pago: {payment_leido['amount']}")
+            print(f"Moneda de pago: {payment_leido['currency']}")
+            print(f"Metodo de pago: {payment_leido['method']}")
+            print(f"Estatus del pago: {payment_leido['status']}")
+            print(f"Fecha del pago: {payment_leido['date']}")
+
+        else:
+            print("Pago no encontrado.")
+        input("Presione cualquier tecla para continuar...")
+
+    def envios(self):
+        while True:
+            self.clear_terminal()
+            print("\n--- Modulo de Envios ---")
+            print("1. Registrar envios")
+            print("2. Buscar envios")
+            print("3. Retornar al Menú Anterior")
+            menu = input("---> ")
+
+            if menu == '1':
+                self.registrar_envios()
+            elif menu == '2':
+                self.buscar_envios()
+            elif menu == '3':
+                break
+
+    def registrar_envios(self):
+        self.clear_terminal()
+        self.registro_venta_envio()
+        input("Presione cualquier tecla para continuar...")
+
+    def buscar_envios(self):
+        shipping_file = "Shipping.json"
+        print("Buscar envio seleccionado.")
+        identification_shipping = int(input("Número de envio: "))
+                #print(Natural_Person.read(identification , natural_file))
+                #input("Presione cualquier tecla para continuar...")
+        shipping_leido = Shipping.get_shipping(identification_shipping)
+        #if shipping_leido:
+            #print(f"Envío encontrado: {shipping_leido}")
+        #else:
+            # print("Envío no encontrado.")
+        # cliente_Leido= Natural_Person.get_client(identification , shipping_file)
+        if shipping_leido:
+            self.clear_terminal()
+            print("Envio encontrado:")
+            print(f"Identificacion del envio: {shipping_leido["shippingId"]}")
+            print(f"Empresa de envios: {shipping_leido['shipping_service']}")
+            print(f"Metodo de envio: {shipping_leido['shipping_method']}")
+            print(f"Estatus del envio: {shipping_leido['shipping_status']}")
+            print(f"Precio del servicio: {shipping_leido['service_price']}")
+
+        else:
+            print("Envio no encontrado.")
+        input("Presione cualquier tecla para continuar...")
+
+    def menu_buscar_cliente_natural(self):
+        natural_file = "Natural_Person.json"
+        identification = input("Identificación: ")
+        #print(Natural_Person.read(identification , natural_file))
+        #input("Presione cualquier tecla para continuar...")
+
+        cliente_Leido= Natural_Person.get_client(identification , natural_file)
+        if cliente_Leido:
+            self.clear_terminal()
+            print("Cliente encontrado:")
+            print(f"Identificacion: {cliente_Leido['identification']}")
+            print(f"Nombre: {cliente_Leido['name']}")
+            print(f"Apellido: {cliente_Leido['last_name']}")
+            print(f"Correo-e: {cliente_Leido['email']}")
+            print(f"Número de Teléfono: {cliente_Leido['phone_number']}")
+            print(f"Direccion de envio: {cliente_Leido['shipping_address']}")
+            input("Presione cualquier tecla para continuar...")
+            return cliente_Leido['identification']
+        else:
+            print("Cliente no encontrado.")
+            input("Presione cualquier tecla para continuar...")
+            return False
+        
+    def menu_buscar_producto(self):
+        Product.list_all_products()
+        eleccion = int(input("Seleccione el id del producto que va a comprar: "))
+        producto = Product.get_product(eleccion)
+        product_price = producto['price']
+        producto_seleccionado = {'product_id': eleccion, 'price': product_price}
+        return producto_seleccionado # Elección representa el Id del producto a comprar
+    
+    def registro_venta_envio(self):
+        print("Servicio de envios: \n1. MRW \n2. Tealca \n3. Ipostel")
+        shipping_service = input("---> ")
+        while True:
+            if shipping_service == '1':
+                servicio_seleccionado = Shipping_Service.MRW
+                break
+            elif shipping_service == '2':
+                servicio_seleccionado = Shipping_Service.Tealca
+                break
+            elif shipping_service == '3':
+                servicio_seleccionado = Shipping_Service.Ipostel
+                break
+            else:
+                print("Ha ingresado un valor incorrecto, por favor indique uno de los valores seleccionados")
+        print("Método de envios: \n1. Oficina de retiro \n2. Puerta a Puerta \n3. Apartado postal")
+        shipping_method = input("---> ")
+        while True:
+            if shipping_method == '1':
+                metodo_seleccionado = Shipping_Method.Oficina_de_retiro
+                break
+            elif shipping_method == '2':
+                metodo_seleccionado = Shipping_Method.Puerta_a_Puerta
+                break
+            elif shipping_method == '3':
+                metodo_seleccionado = Shipping_Method.Apartado_postal
+                break
+            else:
+                print("Ha ingresado un valor incorrecto, por favor indique uno de los valores seleccionados")
+        service_price = float(input("Precio del envio: "))
+        status = "Procesado"
+
+        # Ejemplo de cómo crear un envío y guardarlo
+        new_shipping = Shipping(servicio_seleccionado, metodo_seleccionado, Shipping_Status.Procesado, service_price)
+        new_shipping.create_shipping()
+        return service_price
+
+        # Llamar al método create para guardar la instancia
+        print("Envio agregado exitosamente.")
+
+    def registrar_pago_venta(self, precio_producto: float, precio_envio: float) -> float:
+        
+        print("Moneda de pago: \n1. Dolar estadounidense \n2. Bolivar \n3. Euro \n4. Libra esterlina \n5. Franco suizo \n6. Yuan chino")
+        currency = input("---> ")
+        while True:
+            if currency == '1':
+                moneda_seleccionada = Currency.USD
+                break
+            elif currency == '2':
+                moneda_seleccionada = Currency.VEF
+                break
+            elif currency == '3':
+                moneda_seleccionada = Currency.EUR
+                break
+            elif currency == '4':
+                moneda_seleccionada = Currency.GBP
+                break
+            elif currency == '5':
+                moneda_seleccionada = Currency.CHF
+                break
+            elif currency == '6':
+                moneda_seleccionada = Currency.CNY
+                break
+            else:
+                print("Ha ingresado una moneda invalida, por favor indique uno de los valores seleccionados")
+        print("Metodo de pago: \n1. Punto de venta \n2. Pago movil \n3. Transferencia \n4. Zelle \n5. PayPal \n6. Efectivo")
+        payment_method = input("---> ")
+        while True:
+            if payment_method == '1':
+                metodo_seleccionado = Payment_Method.POS
+                break
+            elif payment_method == '2':
+                metodo_seleccionado = Payment_Method.MOBILE
+                break
+            elif payment_method == '3':
+                metodo_seleccionado = Payment_Method.TRANSFER
+                break
+            elif payment_method == '4':
+                metodo_seleccionado = Payment_Method.ZELLE
+                break
+            elif payment_method == '5':
+                metodo_seleccionado = Payment_Method.PAYPAL
+                break
+            elif payment_method == '6':
+                metodo_seleccionado = Payment_Method.CASH
+                break
+            else:
+                print("Ha ingresado un metodo invalido, por favor indique uno de los valores seleccionados")
+        status = Payment_Status.PROCESSING
+
+        # Ejemplo de cómo crear un envío y guardarlo
+        amount = precio_producto + precio_envio
+        new_payment = Payment.create_payment(amount, moneda_seleccionada, metodo_seleccionado, status)
+        print(f"El valor a pagar es: {amount}")
+        return amount # Se retorna la cantidad a pagar
+
+        # Llamar al método create para guardar la instancia
 
 
 # Ejecución del programa
@@ -340,7 +752,5 @@ if __name__ == "__main__":
     main_app.LoadData()  # Cargar los datos y ejecutar el método DataStorage
     main_app.main_menu()
 #Product.list_all_products()
-
-   
 
 
