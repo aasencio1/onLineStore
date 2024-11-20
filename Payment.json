@@ -1,29 +1,965 @@
 [
     {
+        "paymentId": 1,
+        "amount": 805.6536400000001,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2024-11-17T22:31:23.150691",
+        "condition": "Contado"
+    },
+    {
         "paymentId": 2,
-        "amount": 500.0,
-        "currency": "Euro",
-        "method": "Transfer",
-        "status": "Completado",
-        "date": "2024-11-17T10:00:20.774707",
-        "condition": "Cr\u00e9dito"
+        "amount": 805.6536400000001,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2024-11-17T22:32:03.426418",
+        "condition": "Contado"
     },
     {
         "paymentId": 3,
-        "amount": 500.0,
-        "currency": "Euro",
-        "method": "Transfer",
-        "status": "Completado",
-        "date": "2024-11-17T10:00:53.891210",
-        "condition": "Credito"
+        "amount": 743.0786,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2024-11-17T22:32:51.885010",
+        "condition": "Contado"
     },
     {
         "paymentId": 4,
+        "amount": 782.1880000000001,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2024-11-17T22:33:38.030606",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 5,
+        "amount": 765.3709580000001,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2024-11-17T22:34:47.166181",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 6,
+        "amount": 806.8484400000001,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2024-11-17T22:35:27.306385",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 7,
+        "amount": 645.5677120000001,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-02-02 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 8,
+        "amount": 829.232368,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-05-13 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 9,
+        "amount": 172.092368,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-12-06 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 10,
+        "amount": 234.75962799999996,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-07-22 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 11,
+        "amount": 665.0976,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-03-04 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 12,
+        "amount": 268.88800000000003,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-09-05 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 13,
+        "amount": 1646.574,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-07-18 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 14,
+        "amount": 197.78592,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-03-28 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 15,
+        "amount": 638.5568000000001,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-04-20 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 16,
+        "amount": 791.4491999999999,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-06-04 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 17,
+        "amount": 375.086,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-06-27 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 18,
+        "amount": 512.7179,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-11-07 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 19,
+        "amount": 903.393604,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-11-08 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 20,
+        "amount": 209.2794,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-05-15 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 21,
+        "amount": 84.01183599999999,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-06-06 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 22,
+        "amount": 1426.8927999999999,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-11-29 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 23,
+        "amount": 1610.0112,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-04-22 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 24,
+        "amount": 814.4736,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-04-05 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 25,
+        "amount": 797.5,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-11-02 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 26,
+        "amount": 497.93,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-12-30 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 27,
+        "amount": 1464.9988,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-01-03 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 28,
+        "amount": 410.275872,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-08-02 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 29,
+        "amount": 497.54720000000003,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-09-11 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 30,
+        "amount": 1154.8387200000002,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-12-01 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 31,
+        "amount": 736.8951360000001,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-01-01 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 32,
+        "amount": 352.363792,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-05-14 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 33,
+        "amount": 482.67240000000004,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-09-08 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 34,
+        "amount": 1028.349768,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-07-25 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 35,
+        "amount": 46.632000000000005,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-03-01 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 36,
+        "amount": 486.9051600000001,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-01-07 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 37,
+        "amount": 210.73232399999998,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-01-06 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 38,
+        "amount": 623.0515760000001,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-09-21 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 39,
+        "amount": 1148.406,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-11-30 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 40,
+        "amount": 235.32118400000002,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-04-16 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 41,
+        "amount": 179.882464,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-03-14 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 42,
+        "amount": 481.4928,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-07-31 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 43,
+        "amount": 361.444272,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-09-22 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 44,
+        "amount": 1136.8,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-02-01 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 45,
+        "amount": 744.3720000000001,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-09-22 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 46,
+        "amount": 162.136848,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-09-21 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 47,
+        "amount": 309.42268,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-11-21 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 48,
+        "amount": 82.14782399999999,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-10-28 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 49,
+        "amount": 325.69585600000005,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-10-17 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 50,
+        "amount": 586.544592,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-05-25 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 51,
+        "amount": 538.023888,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-01-22 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 52,
+        "amount": 177.1784,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-10-26 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 53,
+        "amount": 84.65690400000001,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-03-28 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 54,
+        "amount": 1017.8195999999999,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-07-19 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 55,
+        "amount": 768.28562,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-01-30 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 56,
+        "amount": 314.14339200000006,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-01-01 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 57,
+        "amount": 684.32592,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-11-27 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 58,
+        "amount": 79.90079999999999,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-12-28 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 59,
+        "amount": 586.7512,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-06-11 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 60,
+        "amount": 462.47656,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-05-04 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 61,
+        "amount": 450.12640000000005,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-03-24 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 62,
+        "amount": 1392.7614000000003,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-05-16 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 63,
+        "amount": 116.259488,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-09-14 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 64,
+        "amount": 781.29048,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-01-09 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 65,
+        "amount": 780.4016,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-10-31 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 66,
+        "amount": 310.80864799999995,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-09-04 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 67,
+        "amount": 1148.406,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-09-23 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 68,
+        "amount": 1190.0740400000002,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-07-11 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 69,
+        "amount": 13.1776,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-09-15 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 70,
+        "amount": 232.0,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-10-14 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 71,
+        "amount": 458.2,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-09-15 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 72,
+        "amount": 262.479112,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-12-15 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 73,
+        "amount": 177.1784,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-07-17 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 74,
+        "amount": 1073.270268,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-12-24 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 75,
+        "amount": 297.79564799999997,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-12-30 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 76,
+        "amount": 73.56916,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-03-06 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 77,
+        "amount": 785.5803000000001,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-06-20 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 78,
+        "amount": 88.958184,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-08-17 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 79,
+        "amount": 96.98723999999999,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-09-13 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 80,
+        "amount": 21.7152,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-07-08 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 81,
+        "amount": 829.922,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-08-04 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 82,
+        "amount": 714.22092,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-06-26 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 83,
+        "amount": 538.7504,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-08-10 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 84,
+        "amount": 769.169772,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-04-13 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 85,
+        "amount": 309.6504,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-07-21 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 86,
+        "amount": 59.016496000000004,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-02-19 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 87,
+        "amount": 46.68616,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-01-31 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 88,
+        "amount": 94.30799999999999,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-05-04 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 89,
+        "amount": 153.97840000000002,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-08-13 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 90,
+        "amount": 614.0966799999999,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-10-27 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 91,
+        "amount": 461.57559999999995,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-04-21 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 92,
+        "amount": 921.136384,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-07-10 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 93,
+        "amount": 213.10334400000002,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-01-04 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 94,
+        "amount": 1363.977056,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-04-19 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 95,
+        "amount": 296.98283999999995,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-10-23 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 96,
+        "amount": 462.47656,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-08-22 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 97,
+        "amount": 891.634,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-04-04 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 98,
+        "amount": 58.0974,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-09-11 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 99,
+        "amount": 283.783296,
+        "currency": "$",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-08-11 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 100,
+        "amount": 227.07,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-10-10 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 101,
+        "amount": 226.73360000000002,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-09-30 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 102,
+        "amount": 301.7392,
+        "currency": "Bs",
+        "method": "Efectivo",
+        "status": "Procesando",
+        "date": "2023-11-15 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 103,
+        "amount": 1042.1556,
+        "currency": "Bs",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-06-08 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 104,
+        "amount": 542.265304,
+        "currency": "$",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-04-05 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 105,
+        "amount": 122.2524,
+        "currency": "Bs",
+        "method": "Transferencia",
+        "status": "Procesando",
+        "date": "2023-03-24 00:00:00",
+        "condition": "Credito"
+    },
+    {
+        "paymentId": 106,
+        "amount": 286.267456,
+        "currency": "$",
+        "method": "Punto Venta",
+        "status": "Procesando",
+        "date": "2023-05-21 00:00:00",
+        "condition": "Contado"
+    },
+    {
+        "paymentId": 107,
         "amount": 500.0,
         "currency": "Euro",
         "method": "Transfer",
         "status": "Completado",
-        "date": "2024-11-17T10:01:25.259581",
+        "date": "2024-11-20T09:38:12.464606",
         "condition": "Credito"
     }
 ]

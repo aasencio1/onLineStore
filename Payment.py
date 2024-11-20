@@ -130,7 +130,12 @@ class Payment:
             return False
 
 
-Payment.delete_payment(1)
 
-
-
+Payment.create_payment(
+    amount=500.0,
+    currency=Currency.EUR,
+    method=Payment_Method.TRANSFER,
+    status=Payment_Status.COMPLETED,
+    client_type="Legal_Entity",
+    condition=Payment_Condition.CREDITO
+)
